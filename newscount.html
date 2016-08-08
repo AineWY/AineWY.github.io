@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+
+</head>
+<body>
+<div id="tab" style="margin-top: 0;height:570px; position:relative;" class="article-block margin-right">
+    <div class="article-head clearfix">
+        <h5 class="article-head-tag active pull-left">新闻中心</h5>
+
+        <a href="http://km.sinooceanland.com/sites/newscenter" target="_blank" title="更多" class="nav-icon-more pull-right"></a>
+    </div>
+    <div style="padding-bottom:2px;" class="article-body clearfix">
+        <div id="slide" class="slide pull-left">
+
+            <ol>
+                @for (int i = 0; i < @Model.RecommendedImageNewsModelList.Count(); i++)
+                {
+                if (i == 0)
+                {
+                <li class="active">@(i + 1)</li>
+                }
+                else
+                {
+                <li>@(i + 1)</li>
+                }
+                }
+
+            </ol>
+
+            @Html.ViewComponent().ListView(@Model.RecommendedImageNewsModelList).Columns(columns =>
+            {
+            columns.AddImage()
+            .Src(m => m.TopPicAddress);
+
+            }).ShowHead(false).ContainerTagName("div").RowTagName("a").RowTagAttr((tag, model) =>
+            {
+
+            tag.Attributes["href"] = model.Link;
+            tag.Attributes["target"] = "_blank";
+            tag.Attributes["title"] = model.Title;
+
+            }
+            ).Id("RecommendedImageNewsView")
+
+        </div>
+        @Html.ViewComponent().ListView(@Model.RecommendedNewsModelList).Columns(columns =>
+        {
+
+
+        columns.AddTemplate().Template(m => "<a  target='_blank' title='" + m.Title + "' href='" + m.Link + "' >" + m.Title + "</a>");
+
+
+        }).ShowHead(false).ContainerTagName("ul").RowTagName("li").AddClass("list-group article-new-width  pull-left").RowTagAttr((tag, model) =>
+        {
+
+        }
+        ).Id("RecommendedNewsView")
+
+        <ul id="news-item" style="display:none;width:460px;  padding-left:20px;" class="list-group article-new-width  pull-left"></ul>
+    </div>
+    <ul id="news-item" style="display: block; width: 460px; padding-left: 20px;" class="list-group article-new-width  pull-left">
+        @foreach (var item in Model.NewsModelList)
+        {
+        <li class="list-group-item">
+            <a class="pull-left" href="javascript:;" title="@item.WebName">@item.WebShortName|</a><a href="@item.Link" target="_blank" title="@item.Title  @item.ArticleStartDateString" class="pull-left w350">@item.Title</a>
+            @if (item.IsNew == true)
+            {
+            <span class="show-new pull-right" style="top: 4px;"></span>
+            }
+
+        </li>
+
+        }
+        @*@if (item.IsNew == true)
+        {
+        <span class="pull-right"><img style="top: 4px;vertical-align:middle" src="~/images/icon-new.png" /> </span>
+
+        }*@
+
+        @*<span class="pull-right"><img style="margin-left:140px;vertical-align:middle" src="~/images/icon-new.png" /> </span>*@
+
+    </ul>
+</div>
+</body>
+</html>

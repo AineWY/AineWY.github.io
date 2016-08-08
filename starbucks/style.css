@@ -1,0 +1,156 @@
+*{
+    padding:0;
+    margin:0;
+    font:inherit;
+}
+
+/*通用样式*/
+body{
+    background-color:#ffffff;
+    font:14px  微软雅黑,黑体,Verdana,Arial,sans-serif;
+    color:#333333;
+    border-top:8px solid #006f47;
+}
+
+ul{
+    list-style-type:none;
+}
+
+/*外层盒子*/
+.wrap{
+    width:960px;
+    margin:0 auto;
+}
+
+/*头部*/
+.top-header{
+    margin:10px 0;
+    height:120px;
+}
+
+/*logo*/
+.starbucks-logo{
+    float:left;
+    margin-left:20px;
+}
+
+/*导航*/
+.top-menu{
+    float:left;
+    margin-top:83px;
+    margin-left:30px;
+}
+.top-menu ul li{
+    display:inline;
+    background-color:#efe5d0;
+    padding:5px 10px;
+    margin:0 5px;
+}
+
+.top-menu ul li .selected{
+    background-color:#c8b99c;
+}
+
+.top-menu ul li a:link, .top-menu ul li a:visited{
+    color:#006f47;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+
+
+/*侧边栏*/
+.left-aside{
+    float:left;
+    width:350px;
+}
+
+.left-aside section{
+    background：#efe5d0 url(images/background.gif) top left;
+    padding:20px;
+    margin-bottom:10px;
+}
+.left-aside h3{
+    color:#006f47;
+    font-size:1.2em;
+    margin-bottom:10px;
+}
+
+/*星享之旅*/
+.news p{
+    line-height:1.8em;
+}
+
+.news a{
+    text-decoration:none;
+    color:#006f47;
+}
+
+/*饮品*/
+.drinks figure{
+    float:left;
+}
+
+.drinks figure img{
+    width:141px;
+    height:158px;
+    border:2px solid #ffffff;
+}
+/*清除浮动，让边框包裹图片*/
+.clear{
+    clear:both;
+}
+
+drinks figure img{
+    width:141px;
+    height:158px;
+    border:2px solid #ffffff;
+}
+
+/*主内容区域*/
+main{
+    background: #efe5d0 url(images/background.gif) top left;
+    padding:20px;
+    margin-left:360px;
+}
+
+main article{
+    border-bottom:1px dashed #c8b99c;
+    margin-bottom:10px;
+    padding-bottom:10px;
+}
+main .last-article{
+    border-bottom:none;
+    margin-bottom:0;
+    padding-bottom:0;
+}
+main article h3{
+    color:#006f47;
+}
+
+main article p{
+    line-heiight:1.5em;
+    txt-indent:30px;
+}
+
+main article b{
+    font-weight:bold;
+    color:#675c47;
+}
+
+main article small{
+    color:#808080;
+    font-style:0.8em;
+}
+
+/*页脚*/
+
+.page-footer{
+    clear:both;
+    padding:15px;
+    margin-top:10px;
+    background-color:#675c47;
+    color:#efe5d0;
+    text-align:center;
+    font-size: 90%;
+}
